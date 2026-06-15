@@ -1,0 +1,245 @@
+{
+  "log": {
+    "level": "warn",
+    "output": "data/box.log"
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "tcp",
+        "tag": "dns-remote",
+        "detour": "proxy",
+        "server": "8.8.8.8"
+      },
+      {
+        "type": "udp",
+        "tag": "dns-direct",
+        "server": "1.1.1.1"
+      }
+    ],
+    "rules": [
+      {
+        "domain_suffix": [".ru", ".su", ".xn--p1ai"],
+        "server": "dns-direct"
+      }
+    ],
+    "final": "dns-remote"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "address": [
+        "172.19.0.1/28",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "gvisor"
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 12334
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "HELs-VLESS",
+        "direct"
+      ],
+      "default": "HELs-VLESS"
+    },
+    {
+      "type": "vless",
+      "tag": "HELs-VLESS",
+      "server": "62.60.236.230",
+      "server_port": 443,
+      "uuid": "4aa27172-d66a-41e8-9c57-a2be8951afa6",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "D2SosmZ7KdzDaP4SBzgFDBscdg3fcgm6M4fKg2KBbCw",
+          "short_id": "77001a4404c9467e"
+        }
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "ip_cidr": [
+          "192.168.0.0/16",
+          "10.0.0.0/8",
+          "172.16.0.0/12"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "apple.com",
+          "icloud.com",
+          "appstore.com",
+          "mzstatic.com",
+          "me.com",
+          "cdn-apple.com",
+          "apple-dns.net"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": ["ru", "su", "xn--p1ai"],
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ru",
+          "geosite-ru"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "my.com",
+          "2gis.com",
+          "vk.com",
+          "userapi.com",
+          "yandex.com",
+          "yandex.net",
+          "yastatic.net"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "rutracker.org",
+          "rutracker.cc",
+          "nnmclub.to",
+          "kinozal.tv",
+          "rutor.info",
+          "rutor.is",
+          "tapochek.net"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "deepseek.com",
+          "deepseek.ai",
+          "kimi.com",
+          "moonshot.cn"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "openai.com",
+          "chatgpt.com",
+          "claude.ai",
+          "anthropic.com",
+          "perplexity.ai"
+        ],
+        "outbound": "HELs-VLESS"
+      },
+      {
+        "domain_suffix": [
+          "github.com"
+        ],
+        "outbound": "HELs-VLESS"
+      },
+      {
+        "domain_suffix": [
+          "hetzner.com",
+          "hetzner.cloud"
+        ],
+        "outbound": "HELs-VLESS"
+      },
+      {
+        "domain_keyword": "google",
+        "outbound": "HELs-VLESS"
+      },
+      {
+        "domain_suffix": [
+          "gstatic.com",
+          "youtube.com",
+          "ytimg.com"
+        ],
+        "outbound": "HELs-VLESS"
+      },
+      {
+        "domain_suffix": [
+          "telegram.org",
+          "whatsapp.com",
+          "discord.com"
+        ],
+        "outbound": "HELs-VLESS"
+      },
+      {
+        "domain_suffix": [
+          "instagram.com",
+          "facebook.com",
+          "x.com",
+          "tiktok.com",
+          "pinterest.com",
+          "reddit.com"
+        ],
+        "outbound": "HELs-VLESS"
+      },
+      {
+        "domain_suffix": [
+          "zoom.us",
+          "slack.com",
+          "notion.so",
+          "outlook.com",
+          "onedrive.com"
+        ],
+        "outbound": "HELs-VLESS"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geosite-ru",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-ru.srs",
+        "download_detour": "proxy",
+        "update_interval": "120h"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-ru.srs",
+        "download_detour": "proxy",
+        "update_interval": "120h"
+      }
+    ],
+    "final": "proxy",
+    "auto_detect_interface": true
+  }
+}
