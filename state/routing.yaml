@@ -1,0 +1,30 @@
+# Правила маршрутизации для sing-box (Alibaba VPS).
+# Применяются скриптом scripts/apply-routing.sh.
+#
+# direct  — идти напрямую, минуя VPN
+# proxy   — идти через VPN (HELs-VLESS / xray на AEZA)
+#
+# Порядок: сначала матчатся более специфичные (domain), затем общие.
+
+# Домены/сайты, которые ходят НАПРЯМУЮ (минуя VPN):
+direct:
+  domains:
+    - deepseek.com
+    - kimi.moonshot.cn
+    - agent-gw.kimi.com
+  # Приватные подсети всегда direct:
+  ip_cidr:
+    - 192.168.0.0/16
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+
+# Домены/сайты, которые ОБЯЗАТЕЛЬНО через VPN:
+# (жёсткое правило пользователя: Anthropic всегда через VPN)
+proxy:
+  domains:
+    - claude.ai
+    - claude.com
+    - anthropic.com
+
+# Что делать со всем остальным трафиком: proxy | direct
+final: proxy

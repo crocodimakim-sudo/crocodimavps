@@ -1,0 +1,12 @@
+# Секреты — НИКОГДА не коммитить (правило из CLAUDE.md)
+.secrets/
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+ssh_key*
+*_private*
+secrets.env
+.env
+# Реестр UUID друзей — это по сути пароли доступа к VPN
+friends-secrets.*

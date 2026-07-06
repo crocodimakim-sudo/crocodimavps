@@ -1,0 +1,25 @@
+# Инвентарь серверов — «память» о том, что где настроено.
+servers:
+  alibaba-openclaw:
+    role: openclaw + sing-box (VPN-клиент)
+    provider: Alibaba Cloud
+    internal_ip: 10.184.28.145
+    os: Ubuntu 24.04.3 LTS
+    services:
+      - name: openclaw-gateway
+        ports: [18789, 18791]
+      - name: sing-box
+        config: /etc/sing-box/config.json
+        inbound: mixed SOCKS/HTTP 127.0.0.1:10808
+      - name: postgresql-16
+        port: 5432
+
+  aeza-vpn:
+    role: xray VLESS+REALITY (VPN-сервер)
+    provider: AEZA/Hetzner
+    host: 62.60.236.230
+    port: 443
+    protocol: VLESS + REALITY
+    sni: www.google.com
+    xray_config: /usr/local/etc/xray/config.json  # уточнить на сервере
+    notes: сюда добавляются друзья-пользователи (уникальные UUID)
