@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "perplexity": {
+      "command": "npx",
+      "args": ["-y", "@perplexity-ai/mcp-server"],
+      "env": { "PERPLEXITY_API_KEY": "ВСТАВИТЬ_КЛЮЧ_ЛОКАЛЬНО_НЕ_КОММИТИТЬ" }
+    },
+    "youtube-transcript": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/jkawamoto/mcp-youtube-transcript", "mcp-youtube-transcript"]
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": { "FIRECRAWL_API_KEY": "ВСТАВИТЬ_КЛЮЧ_ЛОКАЛЬНО_НЕ_КОММИТИТЬ" }
+    }
+  }
+}
