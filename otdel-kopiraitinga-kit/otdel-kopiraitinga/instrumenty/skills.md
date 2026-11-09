@@ -1,6 +1,13 @@
 # Скилы: что ставить, в каком порядке и когда запускать
 
-Скил — папка с `SKILL.md`, которую Claude подхватывает сам, когда задача подходит. Ставятся в `~/.claude/skills/` (для всех проектов) или `.claude/skills/` (только для этого отдела).
+Скил — папка с `SKILL.md` (шапка `name` + `description` и инструкция). **Формат одинаковый у Claude Code и Codex**, поэтому одни и те же скилы работают на обеих платформах. Отличается только папка:
+
+| | Только этот отдел | Все проекты |
+|---|---|---|
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| Codex | `.agents/skills/` | `~/.agents/skills/` |
+
+Источник своих скилов один: `instrumenty/skills/`. `ustanovka.sh` раскладывает их в нужные папки.
 
 > Перед установкой любого скила с GitHub откройте его `SKILL.md` и прочитайте. Это инструкция для вашего агента: ставьте только то, что понимаете.
 
@@ -36,21 +43,20 @@
 **Почему такой порядок в шаге 5:** сначала ломаем ИИ-структуру текста (крупное), потом чистим слова (мелкое), потом полируем. Если полировать раньше, следующий шаг снова всё сдвинет.
 
 ## Установка
+Проще всего: `bash ustanovka.sh` (или `bash ustanovka.sh claude` / `bash ustanovka.sh codex`). Вручную:
 ```bash
-# marketingskills: copywriting и copy-editing (только в этот проект)
+# marketingskills: copywriting и copy-editing (--agent claude-code или --agent codex)
 npx -y skills add coreyhaines31/marketingskills --skill copywriting --agent claude-code
 npx -y skills add coreyhaines31/marketingskills --skill copy-editing --agent claude-code
 
 # humanizer
-git clone https://github.com/blader/humanizer .claude/skills/humanizer
+git clone https://github.com/blader/humanizer .claude/skills/humanizer   # Claude Code
+git clone https://github.com/blader/humanizer .agents/skills/humanizer   # Codex
 
 # свои скилы из этого архива
-cp -r instrumenty/skills/* .claude/skills/
-
-# anthropics/skills (внутри Claude Code)
-/plugin marketplace add anthropics/skills
+cp -r instrumenty/skills/* .claude/skills/    # Claude Code
+cp -r instrumenty/skills/* .agents/skills/    # Codex
 ```
-Или просто `bash ustanovka.sh`.
 
 ## Ручные сервисы для русского текста (не скилы, проверять глазами)
 - [Главред](https://glvrd.ru) — стоп-слова, инфостиль, оценка по 10-балльной шкале.

@@ -1,0 +1,11 @@
+# Сгенерировано sobrat-agentov.sh. Проектные настройки Codex для отдела копирайтинга.
+# Руководитель отдела = главная сессия.
+model = "gpt-6-astra"
+model_reasoning_effort = "medium"
+
+[agents]
+max_threads = 4   # трём авторам нужно работать параллельно
+
+# Если ваша версия Codex требует явно включить субагентов, раскомментируйте:
+# [features]
+# multi_agent = true

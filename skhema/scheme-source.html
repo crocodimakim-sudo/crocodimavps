@@ -23,8 +23,8 @@ function person(x,y){add(rc.circle(x,y,40,{stroke:ink,strokeWidth:2.2}));add(rc.
 const Y='#ffe28a',B='#9fd3f5',G='#a8e3a1',P='#f6b3c9',O='#ffc18c',V='#cdb8f2',Gr='#d9d9d9';
 
 // title
-T(800,52,'Отдел копирайтинга на Claude: как это работает',46,{anchor:'middle',bold:1});
-add(rc.line(470,64,1130,62,{stroke:'#e4572e',strokeWidth:3,roughness:2}));
+T(800,52,'Отдел копирайтинга на ИИ (Claude и Codex): как это работает',46,{anchor:'middle',bold:1});
+add(rc.line(380,64,1220,62,{stroke:'#e4572e',strokeWidth:3,roughness:2}));
 
 // owner
 person(95,110);T(95,248,'ВЫ (владелец)',26,{anchor:'middle',bold:1});
@@ -36,29 +36,30 @@ T(150,232,'',1);
 // orchestrator
 box(270,90,640,150,Y,{hachureGap:6});num(270,90,'0');
 T(590,132,'Руководитель отдела (оркестратор)',32,{anchor:'middle',bold:1});
-T(590,166,'opus · medium   •   скил intervyu-brif (как grill-me)',23,{anchor:'middle'});
+T(590,166,'сильная · medium   •   скил intervyu-brif (как grill-me)',23,{anchor:'middle'});
 T(590,198,'мини-интервью: по 1 вопросу, со своим вариантом ответа',22,{anchor:'middle'});
 T(590,226,'цель · читатель · одна мысль · ВАША история · позиция · границы',21,{anchor:'middle',color:'#a33'});
 
 // principle note
 add(rc.rectangle(960,82,600,172,{fill:'#fff6b0',fillStyle:'solid',stroke:ink,strokeWidth:1.5,roughness:2.2}));
 T(980,118,'Принцип усилия',28,{bold:1});
-T(980,150,'усилие = глубина мысли, а не качество поиска',23);
-T(980,180,'поиск → дёшево: haiku · low или Perplexity',23,{color:'#1f6f3f'});
-T(980,210,'суд и решения → дорого: opus · high',23,{color:'#a33'});
-T(980,240,'у каждой задачи один скил-хозяин, без дублей',23);
+T(1180,118,'усилие = глубина мысли, а не поиск',23);
+T(980,152,'поиск → дёшево: лёгкая · low + Perplexity',22,{color:'#1f6f3f'});
+T(980,178,'суд и решения → дорого: сильная · high',22,{color:'#a33'});
+T(980,206,'модели (Claude / Codex):  лёгкая = haiku / Terra',22);
+T(980,232,'средняя = sonnet / Sol  •  сильная = opus / Astra',22);
 
 // row 2: steps 1-3
 box(40,320,330,170,B);num(40,320,'1');
 T(205,358,'Исследователь',30,{anchor:'middle',bold:1});
-T(205,388,'haiku · low',24,{anchor:'middle',color:'#1f6f3f'});
+T(205,388,'лёгкая · low',24,{anchor:'middle',color:'#1f6f3f'});
 T(205,418,'Perplexity MCP: свежие',22,{anchor:'middle'});
 T(205,442,'факты и ссылки',22,{anchor:'middle'});
 T(205,470,'YouTube / Insta → транскрипт',22,{anchor:'middle'});
 
 box(430,320,330,170,G);num(430,320,'2');
 T(595,358,'Фактчекер',30,{anchor:'middle',bold:1});
-T(595,388,'sonnet · medium',24,{anchor:'middle'});
+T(595,388,'средняя · medium',24,{anchor:'middle'});
 T(595,418,'✅ ⚠️ ❌ на каждый факт',22,{anchor:'middle'});
 T(595,444,'ссылочная масса: Ahrefs',22,{anchor:'middle'});
 T(595,470,'нет источника = нет факта',22,{anchor:'middle',color:'#a33'});
@@ -67,7 +68,7 @@ box(820,300,740,210,P,{hachureGap:9});num(820,300,'3');
 T(1190,336,'Три автора пишут параллельно и не видят друг друга',27,{anchor:'middle',bold:1});
 const au=[['А','История','сцена → вывод'],['Б','Польза','проблема → шаги'],['В','Спор','неудобный тезис']];
 au.forEach((a,i)=>{const x=850+i*235;add(rc.rectangle(x,352,210,120,{fill:'#fff',fillStyle:'solid',stroke:ink,strokeWidth:1.8,roughness:1.5}));T(x+105,388,'Автор '+a[0],27,{anchor:'middle',bold:1});T(x+105,418,'«'+a[1]+'»',24,{anchor:'middle'});T(x+105,448,a[2],21,{anchor:'middle'})});
-T(1190,500,'sonnet · high  •  скил copywriting: только заголовки, структура, CTA',22,{anchor:'middle'});
+T(1190,500,'средняя · high  •  скил copywriting: только заголовки, структура, CTA',22,{anchor:'middle'});
 
 arrow([[372,405],[400,400],[428,405]]);
 arrow([[762,405],[790,400],[818,405]]);
@@ -75,7 +76,7 @@ arrow([[762,405],[790,400],[818,405]]);
 // row 3
 box(1170,600,390,180,O);num(1170,600,'4');
 T(1365,638,'Редактор-судья',31,{anchor:'middle',bold:1});
-T(1365,668,'opus · high',24,{anchor:'middle',color:'#a33'});
+T(1365,668,'сильная · high',24,{anchor:'middle',color:'#a33'});
 T(1365,700,'рубрика на 100 баллов',23,{anchor:'middle'});
 T(1365,728,'выбирает или собирает',23,{anchor:'middle'});
 T(1365,756,'из лучших кусков',23,{anchor:'middle'});
@@ -87,14 +88,14 @@ T(1300,584,'авторам (макс. 2)',20,{color:'#e4572e'});
 
 box(560,600,560,180,V);num(560,600,'5');
 T(840,638,'Чистка нейрослопа',31,{anchor:'middle',bold:1});
-T(840,666,'sonnet · medium • строго по порядку:',22,{anchor:'middle'});
+T(840,666,'средняя · medium • строго по порядку:',22,{anchor:'middle'});
 [['humanizer','структура'],['antislop-ru','слова'],['copy-editing','ясность']].forEach((s,i)=>{const x=580+i*178;add(rc.rectangle(x,682,160,78,{fill:'#fff',fillStyle:'solid',stroke:ink,strokeWidth:1.6,roughness:1.4}));T(x+80,714,s[0],23,{anchor:'middle',bold:1});T(x+80,744,s[1],21,{anchor:'middle'});if(i<2)arrow([[x+160,721],[x+178,721]],{w:1.8})});
 arrow([[1168,690],[1145,688],[1122,690]]);
 
 box(40,600,460,180,'#bfe9e3');num(40,600,'6');num(40,700,'7');
 T(270,638,'Редактор: финальный взгляд',27,{anchor:'middle',bold:1});
 T(270,668,'смысл цел? голос ваш?',23,{anchor:'middle'});
-T(270,706,'Выпускающий · haiku · low',27,{anchor:'middle',bold:1});
+T(270,706,'Выпускающий · лёгкая · low',27,{anchor:'middle',bold:1});
 T(270,736,'формат площадки, имя файла,',22,{anchor:'middle'});
 T(270,762,'черновики → в архив',22,{anchor:'middle'});
 arrow([[558,690],[530,688],[502,690]]);
@@ -112,5 +113,5 @@ T(640,838,'готовый текст',22,{color:'#1f6f3f',bold:1});
 
 // legend
 add(rc.rectangle(40,1052,1520,62,{fill:'#fff',fillStyle:'solid',stroke:ink,strokeWidth:1.3,roughness:1.8}));
-T(60,1092,'⚙ Уже настроено: роли, модели, усилие, порядок скилов, правила, имена файлов.     ✋ Ваше: ответить на интервью и положить авторов и тексты в reference-list/.',23);
+T(60,1092,'⚙ Настроено для Claude Code и Codex: роли, модели, усилие, скилы, правила, имена файлов.   ✋ Ваше: интервью + авторы и тексты в reference-list/.',23);
 </script></body></html>

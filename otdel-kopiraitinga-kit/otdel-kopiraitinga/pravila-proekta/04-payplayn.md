@@ -2,16 +2,16 @@
 
 | # | Шаг | Кто | Модель / усилие | Инструменты и скилы | Вход | Выход |
 |---|---|---|---|---|---|---|
-| 0 | **Мини-интервью + бриф (всегда)** | Руководитель | opus / medium | скил `intervyu-brif` (grill-me) | запрос владельца | `import/brify/NNNN_..._brif.md` с цитатами владельца |
-| 1a | Транскрипция (если есть видео) | Исследователь | haiku / low | скил `transkribaciya`, YouTube Transcript MCP | ссылки | `import/transkripty/` |
-| 1b | Сбор | Исследователь | haiku / low | **Perplexity MCP**, WebSearch, WebFetch | бриф | `archive/NNNN/dosye.md` |
-| 2 | Фактчек и ссылки | Фактчекер | sonnet / medium | Perplexity, Firecrawl, Ahrefs MCP (для SEO) | досье | `dosye-provereno.md` |
-| 3 | Черновики ×3 параллельно | Автор А/Б/В | sonnet / high | `copywriting`: только заголовки, структура, CTA | бриф, формат, референсы, досье | `chernovik-A/B/V.md` |
-| 4 | Суд | Редактор | opus / high | — | 3 черновика + рубрика | `otchet-redaktora.md`, выбранная версия |
+| 0 | **Мини-интервью + бриф (всегда)** | Руководитель | сильная · medium | скил `intervyu-brif` (grill-me) | запрос владельца | `import/brify/NNNN_..._brif.md` с цитатами владельца |
+| 1a | Транскрипция (если есть видео) | Исследователь | лёгкая · low | скил `transkribaciya`, YouTube Transcript MCP | ссылки | `import/transkripty/` |
+| 1b | Сбор | Исследователь | лёгкая · low | **Perplexity MCP**, WebSearch, WebFetch | бриф | `archive/NNNN/dosye.md` |
+| 2 | Фактчек и ссылки | Фактчекер | средняя · medium | Perplexity, Firecrawl, Ahrefs MCP (для SEO) | досье | `dosye-provereno.md` |
+| 3 | Черновики ×3 параллельно | Автор А/Б/В | средняя · high | `copywriting`: только заголовки, структура, CTA | бриф, формат, референсы, досье | `chernovik-A/B/V.md` |
+| 4 | Суд | Редактор | сильная · high | — | 3 черновика + рубрика | `otchet-redaktora.md`, выбранная версия |
 | 4→3 | Если <80 | Авторы | — | — | правки редактора | новые черновики (макс. 2 круга) |
-| 5 | Антислоп | Чистильщик | sonnet / medium | `humanizer` (структура) → `antislop-ru` (слова) → `copy-editing` (ясность, без voice/tone) | выбранная версия | чистый текст + лог |
-| 6 | Финальная проверка | Редактор | opus / high | — | чистый текст | да / правки |
-| 7 | Выпуск | Выпускающий | haiku / low | Bash (zip) | финал | `export/NNNN_...md`, перенос в `archive/` |
+| 5 | Антислоп | Чистильщик | средняя · medium | `humanizer` (структура) → `antislop-ru` (слова) → `copy-editing` (ясность, без voice/tone) | выбранная версия | чистый текст + лог |
+| 6 | Финальная проверка | Редактор | сильная · high | — | чистый текст | да / правки |
+| 7 | Выпуск | Выпускающий | лёгкая · low | Bash (zip) | финал | `export/NNNN_...md`, перенос в `archive/` |
 
 ## Можно сокращать
 - Короткий пост на знакомую тему без цифр: пропустить 1b и 2, один автор вместо трёх. Шаги 0, 4, 5, 7 не пропускать никогда (интервью можно сократить до 2 вопросов).

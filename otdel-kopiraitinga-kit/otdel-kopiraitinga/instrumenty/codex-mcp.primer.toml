@@ -1,0 +1,16 @@
+# Пример для ~/.codex/config.toml (Codex). Обычно проще командой `codex mcp add`, см. mcp.md.
+# Ключи вписывать только у себя на компьютере, в архив и git не класть.
+
+[mcp_servers.perplexity]
+command = "npx"
+args = ["-y", "@perplexity-ai/mcp-server"]
+env = { PERPLEXITY_API_KEY = "ВСТАВИТЬ_КЛЮЧ_ЛОКАЛЬНО" }
+
+[mcp_servers.youtube-transcript]
+command = "uvx"
+args = ["--from", "git+https://github.com/jkawamoto/mcp-youtube-transcript", "mcp-youtube-transcript"]
+
+[mcp_servers.firecrawl]
+command = "npx"
+args = ["-y", "firecrawl-mcp"]
+env = { FIRECRAWL_API_KEY = "ВСТАВИТЬ_КЛЮЧ_ЛОКАЛЬНО" }

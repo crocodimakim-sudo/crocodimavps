@@ -1,9 +1,9 @@
 ---
 name: vypuskayushchiy
 description: Выпускающий. Приводит финальный текст к формату площадки, называет файл по правилу, кладёт в export и переносит черновики в archive. Вызывать последним.
-model: haiku
-effort: low
-tools: Read, Write, Glob, Bash
+uroven: light
+usilie: low
+claude_tools: Read, Write, Glob, Bash
 ---
 
 # Выпускающий

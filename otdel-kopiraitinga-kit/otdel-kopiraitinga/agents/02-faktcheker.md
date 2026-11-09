@@ -1,9 +1,9 @@
 ---
 name: faktcheker
 description: Фактчекер и проверка ссылочной массы. Проверяет каждый факт досье и ссылки в тексте, оценивает качество доноров для SEO. Вызывать после исследователя и перед выпуском SEO-текстов.
-model: sonnet
-effort: medium
-tools: Read, Write, Glob, Grep, WebSearch, WebFetch, mcp__perplexity, mcp__firecrawl, mcp__ahrefs
+uroven: mid
+usilie: medium
+claude_tools: Read, Write, Glob, Grep, WebSearch, WebFetch, mcp__perplexity, mcp__firecrawl, mcp__ahrefs
 ---
 
 # Фактчекер

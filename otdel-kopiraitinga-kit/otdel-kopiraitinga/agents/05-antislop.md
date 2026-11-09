@@ -1,9 +1,9 @@
 ---
 name: antislop
 description: Чистильщик нейрослопа. Убирает признаки ИИ-текста, канцелярит и воду, не меняя смысл и факты. Вызывать после выбора редактором финальной версии.
-model: sonnet
-effort: medium
-tools: Read, Write, Glob, Grep, Skill
+uroven: mid
+usilie: medium
+claude_tools: Read, Write, Glob, Grep, Skill
 ---
 
 # Чистильщик нейрослопа

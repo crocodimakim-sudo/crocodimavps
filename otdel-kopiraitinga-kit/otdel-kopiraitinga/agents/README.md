@@ -1,18 +1,27 @@
-# Агенты отдела
+# Агенты отдела: единый источник
 
-Файлы в формате субагентов Claude Code (YAML-шапка + инструкция). `ustanovka.sh` копирует их в `.claude/agents/`.
+Здесь описаны роли **без привязки к платформе**. В шапке у каждой роли:
+- `uroven`: light / mid / strong — уровень модели. Конкретные модели заданы в `../instrumenty/modeli.conf`.
+- `usilie`: low / medium / high.
+- `claude_tools`: список инструментов. В Claude Code это жёсткий допуск, в Codex текстовое правило.
 
-| Файл | Модель | Усилие | Почему так |
-|---|---|---|---|
-| ../AGENT.md (руководитель) | opus | medium | Интервью и маршрутизация: важно понимать человека, но не думать часами |
-| 01-issledovatel | haiku | low | Поиск: результат зависит от поисковика, а не от глубины мысли |
-| 02-faktcheker | sonnet | medium | Нужно сопоставлять источники, но не философствовать |
-| 03-avtor (×3) | sonnet | high | Текст — это много мелких решений, усилие окупается |
-| 04-redaktor | opus | high | Главное суждение отдела, тут не экономим |
-| 05-antislop | sonnet | medium | Работа по чек-листу и скилам |
-| 06-vypuskayushchiy | haiku | low | Механика: формат, имя файла, перенос |
+`bash ../sobrat-agentov.sh` собирает из этих файлов:
+- `.claude/agents/<name>.md` для Claude Code;
+- `.codex/agents/<name>.toml` для Codex;
+- `.codex/config.toml`: руководитель на сильной модели.
 
-Хотите экономить: авторов на sonnet/medium, редактора оставить на opus/high.
-Хотите качество: один из трёх авторов на opus, тогда у редактора реально разные «руки».
+**Правите роль только здесь**, потом запускаете скрипт. Готовые файлы в `.claude/` и `.codex/` руками не трогаете.
 
-Поле `tools` с `mcp__perplexity`, `mcp__firecrawl`, `mcp__ahrefs` работает, только если эти MCP установлены (см. `../instrumenty/mcp.md`). Без них агент просто ими не пользуется.
+| Файл | Уровень | Claude | Codex | Усилие |
+|---|---|---|---|---|
+| ../AGENTS.md (руководитель) | strong | opus | Astra | medium |
+| 01-issledovatel | light | haiku | Terra | low |
+| 02-faktcheker | mid | sonnet | Sol | medium |
+| 03-avtor (×3) | mid | sonnet | Sol | high |
+| 04-redaktor | strong | opus | Astra | high |
+| 05-antislop | mid | sonnet | Sol | medium |
+| 06-vypuskayushchiy | light | haiku | Terra | low |
+
+Почему именно так: `../instrumenty/modeli-i-usilie.md`.
+
+`mcp__perplexity`, `mcp__firecrawl`, `mcp__ahrefs` в списке инструментов работают, только если эти MCP подключены (`../instrumenty/mcp.md`). Без них агент просто ими не пользуется.

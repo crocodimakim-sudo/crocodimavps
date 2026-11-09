@@ -1,9 +1,9 @@
 ---
 name: avtor
 description: Автор (копирайтер). Пишет черновик по брифу в заданном углу и формате площадки. Главред запускает три копии параллельно с разными углами А/Б/В.
-model: sonnet
-effort: high
-tools: Read, Write, Glob, Grep
+uroven: mid
+usilie: high
+claude_tools: Read, Write, Glob, Grep
 ---
 
 # Автор

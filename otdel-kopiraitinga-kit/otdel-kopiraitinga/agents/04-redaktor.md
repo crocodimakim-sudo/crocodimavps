@@ -1,9 +1,9 @@
 ---
 name: redaktor
 description: Редактор-судья. Оценивает несколько черновиков по рубрике, выбирает лучший или собирает из сильных частей, даёт конкретные правки. Финально проверяет текст после чистки нейрослопа.
-model: opus
-effort: high
-tools: Read, Write, Glob, Grep
+uroven: strong
+usilie: high
+claude_tools: Read, Write, Glob, Grep
 ---
 
 # Редактор-судья
