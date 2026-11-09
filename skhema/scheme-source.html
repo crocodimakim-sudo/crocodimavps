@@ -7,7 +7,7 @@
 html,body{margin:0;background:#fbf8f1}
 svg text{font-family:H;fill:#222}
 </style></head><body>
-<svg id="s" width="1600" height="1130" xmlns="http://www.w3.org/2000/svg"></svg>
+<svg id="s" width="1600" height="1200" xmlns="http://www.w3.org/2000/svg"></svg>
 <script src="node_modules/roughjs/bundled/rough.js"></script>
 <script>
 const svg=document.getElementById('s'), rc=rough.svg(svg);
@@ -37,7 +37,7 @@ T(150,232,'',1);
 box(270,90,640,150,Y,{hachureGap:6});num(270,90,'0');
 T(590,132,'Руководитель отдела (оркестратор)',32,{anchor:'middle',bold:1});
 T(590,166,'сильная · medium   •   скил intervyu-brif (как grill-me)',23,{anchor:'middle'});
-T(590,198,'мини-интервью: по 1 вопросу, со своим вариантом ответа',22,{anchor:'middle'});
+T(590,198,'режим (поправить ≠ переписать), потом интервью по 1 вопросу',22,{anchor:'middle'});
 T(590,226,'цель · читатель · одна мысль · ВАША история · позиция · границы',21,{anchor:'middle',color:'#a33'});
 
 // principle note
@@ -60,8 +60,8 @@ T(205,470,'YouTube / Insta → транскрипт',22,{anchor:'middle'});
 box(430,320,330,170,G);num(430,320,'2');
 T(595,358,'Фактчекер',30,{anchor:'middle',bold:1});
 T(595,388,'средняя · medium',24,{anchor:'middle'});
-T(595,418,'✅ ⚠️ ❌ на каждый факт',22,{anchor:'middle'});
-T(595,444,'ссылочная масса: Ahrefs',22,{anchor:'middle'});
+T(595,418,'у факта класс: дано / проверено /',21,{anchor:'middle'});
+T(595,444,'вывод / нет данных · ссылки: Ahrefs',21,{anchor:'middle'});
 T(595,470,'нет источника = нет факта',22,{anchor:'middle',color:'#a33'});
 
 box(820,300,740,210,P,{hachureGap:9});num(820,300,'3');
@@ -88,7 +88,7 @@ T(1300,584,'авторам (макс. 2)',20,{color:'#e4572e'});
 
 box(560,600,560,180,V);num(560,600,'5');
 T(840,638,'Чистка нейрослопа',31,{anchor:'middle',bold:1});
-T(840,666,'средняя · medium • строго по порядку:',22,{anchor:'middle'});
+T(840,666,'средняя · medium • по порядку, потом замер скриптом:',22,{anchor:'middle'});
 [['humanizer','структура'],['antislop-ru','слова'],['copy-editing','ясность']].forEach((s,i)=>{const x=580+i*178;add(rc.rectangle(x,682,160,78,{fill:'#fff',fillStyle:'solid',stroke:ink,strokeWidth:1.6,roughness:1.4}));T(x+80,714,s[0],23,{anchor:'middle',bold:1});T(x+80,744,s[1],21,{anchor:'middle'});if(i<2)arrow([[x+160,721],[x+178,721]],{w:1.8})});
 arrow([[1168,690],[1145,688],[1122,690]]);
 
@@ -107,11 +107,18 @@ T(612,292,'раздаёт задания',21,{color:'#777'});
 // row 4 folders
 T(40,850,'Папки',30,{bold:1});
 const F=[['import/','брифы, транскрипты,','ваши заметки',Gr,0],['reference-list/','авторы + образцы','текстов',Y,1],['formaty-kanalov/','ТГ ≠ ЖЖ ≠ Insta','(разные голоса)',Y,1],['pravila-proekta/','правила, рубрика,','стоп-слова',Gr,0],['export/','только финал:','0012_2026-11-09_tg_tema_v1',G,0],['archive/','черновики, досье,','отчёты',Gr,0]];
-F.forEach((f,i)=>{const x=40+i*258;folder(x,870,236,130,f[3]);T(x+118,915,f[0],27,{anchor:'middle',bold:1});T(x+118,946,f[1],21,{anchor:'middle'});T(x+118,970,f[2],i==4?18:21,{anchor:'middle'});if(f[4])T(x+118,1028,i==1?'✋ наполняете вы':'✋ заполнит интервью',22,{anchor:'middle',bold:1,color:'#c0392b'})});
+F.forEach((f,i)=>{const x=40+i*258;folder(x,870,236,130,f[3]);T(x+118,915,f[0],27,{anchor:'middle',bold:1});T(x+118,946,f[1],21,{anchor:'middle'});T(x+118,970,f[2],i==4?18:21,{anchor:'middle'});if(f[4])T(x+118,1030,i==1?'✋ наполняете вы':'✋ заполнит интервью',22,{anchor:'middle',bold:1,color:'#c0392b'})});
 arrow([[220,782],[260,830],[1130,860],[1210,868]],{color:'#1f6f3f',w:2.6});
 T(640,838,'готовый текст',22,{color:'#1f6f3f',bold:1});
 
+
+// step 8: owner edits loop
+arrow([[1190,1004],[1120,1058],[620,1062],[520,1006]],{color:'#7a3fb0',dash:1,w:2.4});
+num(1250,1040,'8','#7a3fb0');
+T(880,1090,'ваши правки → журнал (было / стало / почему) → одобренное в примеры',22,{anchor:'middle',color:'#7a3fb0',bold:1});
+T(880,1113,'раз в 10 текстов редактор предлагает новые правила',20,{anchor:'middle',color:'#7a3fb0'});
+
 // legend
-add(rc.rectangle(40,1052,1520,62,{fill:'#fff',fillStyle:'solid',stroke:ink,strokeWidth:1.3,roughness:1.8}));
-T(60,1092,'⚙ Настроено для Claude Code и Codex: роли, модели, усилие, скилы, правила, имена файлов.   ✋ Ваше: интервью + авторы и тексты в reference-list/.',23);
+add(rc.rectangle(40,1122,1520,62,{fill:'#fff',fillStyle:'solid',stroke:ink,strokeWidth:1.3,roughness:1.8}));
+T(60,1162,'⚙ Настроено для Claude Code и Codex: роли, модели, усилие, скилы, правила, имена файлов.   ✋ Ваше: интервью + авторы и тексты в reference-list/.',23);
 </script></body></html>

@@ -11,7 +11,7 @@
 | YouTube Transcript MCP | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Firecrawl MCP | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Ahrefs MCP | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Bash | ✅ только транскрипция | ❌ | ❌ | ❌ | ❌ | ✅ только zip, mv |
+| Bash | ✅ только транскрипция | ❌ | ❌ | ❌ | ✅ только python-скрипты из `instrumenty/skripty/` | ✅ только zip, mv, `clean_text.py --check` |
 | Скилы | transkribaciya | — | copywriting | — | humanizer, antislop-ru, copy-editing | — |
 
 **Почему авторам нельзя в интернет:** иначе они тащат в текст непроверенные факты в обход фактчекера. Всё фактическое приходит только через досье.

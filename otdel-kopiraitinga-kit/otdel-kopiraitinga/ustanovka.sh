@@ -34,6 +34,8 @@ done
 
 echo "▶ Программы для транскрипции"
 for t in yt-dlp ffmpeg; do command -v $t >/dev/null && echo "  ✓ $t" || echo "  ✗ $t — установить (brew install $t / pip install $t)"; done
+# 2026-11-09: python3 нужен для скриптов замера текста (instrumenty/skripty/)
+command -v python3 >/dev/null && echo "  ✓ python3" || echo "  ✗ python3 — установить (нужен для clean_text.py и detect_ai.py)"
 python3 -c "import faster_whisper" 2>/dev/null && echo "  ✓ faster-whisper" || echo "  ✗ faster-whisper — pip install faster-whisper"
 
 echo
